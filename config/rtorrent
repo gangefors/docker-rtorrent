@@ -7,8 +7,10 @@ ln -s /downloads/.session/.ssh /root/.ssh
 if [ -f /downloads/id_rsa ]; then
 	cp /downloads/id_rsa /downloads/.session/.ssh/.
 	chmod 600 /downloads/.session/.ssh/id_rsa
-	ssh -i /downloads/id_rsa -f -N -D 49161 opticalpalace@seedbox09.snthostings.com
-	ssh sbox 'exit'
+fi
+
+if [-f /downlods/.session/socks_comm ]; then
+	/bin/sh /downloads/.session/socks_comm
 fi
 
 rtorrent

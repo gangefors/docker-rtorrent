@@ -2,7 +2,7 @@
 
 mkdir -p /downloads/.session/.ssh
 rm -rf /downloads/.session/rtorrent.lock
-if [ - f /root/.ssh ]; then
+if [ -f /root/.ssh ]; then
 	ln -s /downloads/.session/.ssh /root/.ssh
 fi
 

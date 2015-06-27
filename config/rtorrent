@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -f /downloads/id_rsa ]; then
+	ssh -i /downloads/id_rsa -f -N -D 49161 opticalpalace@seedbox09.snthostings.com
+	ssh sbox 'exit'
+fi
+
+mkdir -p /downloads/.session
+rm -rf /downloads/.session/rtorrent.lock
+rtorrent

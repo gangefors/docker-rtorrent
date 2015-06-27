@@ -1,7 +1,7 @@
 # This is an example resource file for rTorrent. Copy to
 # ~/.rtorrent.rc and enable/modify the options as needed. Remember to
 # uncomment the options you wish to enable.
-
+proxy_address=127.0.0.1:6000
 scgi_port=127.0.0.1:5000
 encoding_list = UTF-8
 

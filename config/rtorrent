@@ -2,14 +2,16 @@
 
 mkdir -p /downloads/.session/.ssh
 rm -rf /downloads/.session/rtorrent.lock
-ln -s /downloads/.session/.ssh /root/.ssh
+if [ - f /root/.ssh ]; then
+	ln -s /downloads/.session/.ssh /root/.ssh
+fi
 
 if [ -f /downloads/id_rsa ]; then
 	cp /downloads/id_rsa /downloads/.session/.ssh/.
 	chmod 600 /downloads/.session/.ssh/id_rsa
 fi
 
-if [ -f /downlods/.session/socks_comm ]; then
+if [ -f /downloads/.session/socks_comm ]; then
 	/bin/sh /downloads/.session/socks_comm
 fi
 

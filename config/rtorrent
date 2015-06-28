@@ -1,6 +1,0 @@
-#!/bin/sh
-
-mkdir -p /downloads/.session/
-rm -rf /downloads/.session/rtorrent.lock
-
-rtorrent

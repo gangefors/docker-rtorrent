@@ -3,7 +3,7 @@
 mkdir -p /downloads/.session/
 rm -rf /downloads/.session/rtorrent.lock
 
-if[ -f /downloads/vpn ]; then
+if [ -f /downloads/vpn ]; then
 	openvpn --config *.ovpn &
 	echo "nameserver 8.8.8.8" > /etc/resolv.conf
 fi

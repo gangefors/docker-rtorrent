@@ -1,7 +1,6 @@
 #!/bin/sh
 
-mkdir -p /downloads/.session/
-rm -rf /downloads/.session/rtorrent.lock
+rm -rf /root/.session/rtorrent.lock
 
 cd /downloads/vpn
 openvpn --config *.ovpn &

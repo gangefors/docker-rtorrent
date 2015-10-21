@@ -21,7 +21,7 @@ The container is for the purest of torrenters, routing all their traffic through
 * Downloads Volume: /downloads
 * rTorrent scratch files: /downloads
     * .session folder will be created automatically
-* OpenVPN config files: /downloads/vpn
+* VPN Configuration Volume: /vpn
     * Drop your VPN configuration files
 
 The rTorrent, and OpenVPN configuration files will be stored outside the container to ease container upgrades and ensure maximum compatibility

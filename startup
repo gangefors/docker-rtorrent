@@ -2,7 +2,8 @@
 
 rm -rf /root/.session/rtorrent.lock
 
-cd /downloads/vpn
+
+cd /vpn
 openvpn --config *.ovpn &
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 

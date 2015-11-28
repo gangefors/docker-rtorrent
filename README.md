@@ -19,8 +19,6 @@ The container is for the purest of torrenters, routing all their traffic through
 * SCGI TCP port: 5000
     * for ruTorrent interaction
 * Downloads Volume: /downloads
-* rTorrent scratch files: /downloads
-    * .session folder will be created automatically
 * VPN Configuration Volume: /vpn
     * Drop your VPN configuration files
       * main VPN config file must end in .ovpn

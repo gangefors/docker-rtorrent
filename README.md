@@ -23,5 +23,9 @@ The container is for the purest of torrenters, routing all their traffic through
     * .session folder will be created automatically
 * VPN Configuration Volume: /vpn
     * Drop your VPN configuration files
+      * main VPN config file must end in .ovpn
+      
+        startup calls `openvpn --config *.ovpn`
 
-The rTorrent, and OpenVPN configuration files will be stored outside the container to ease container upgrades and ensure maximum compatibility
+
+OpenVPN configuration files will be stored outside the container to ease container upgrades and ensure maximum compatibility

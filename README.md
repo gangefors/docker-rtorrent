@@ -12,7 +12,7 @@ A minimalist rTorrent client for docker with OpenVPN capabilities.
 
 ###OpenVPN
 
-The container is for the purest of torrenters, routing all their traffic through a VPN connection. Your personal OpenVPN configuration files should be stored in `/downloads/vpn`. They will be automatically loaded and properly routed.
+The container is for the purest of torrenters, routing all their traffic through a VPN connection. Your personal OpenVPN configuration files should be stored in `/vpn`. They will be automatically loaded and properly routed. The configuration files for the openvpn must end in `ovpn`. This is because startup calls `openvpn --config *.ovpn`
 
 ###Exposed
 * Incoming TCP port: 49161
@@ -21,9 +21,3 @@ The container is for the purest of torrenters, routing all their traffic through
 * Downloads Volume: /downloads
 * VPN Configuration Volume: /vpn
     * Drop your VPN configuration files
-      * main VPN config file must end in .ovpn
-      
-        startup calls `openvpn --config *.ovpn`
-
-
-OpenVPN configuration files will be stored outside the container to ease container upgrades and ensure maximum compatibility

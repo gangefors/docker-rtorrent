@@ -2,7 +2,7 @@
 # ~/.rtorrent.rc and enable/modify the options as needed. Remember to
 # uncomment the options you wish to enable.
 
-scgi_port=127.0.0.1:5000
+scgi_port=0.0.0.0:50000
 encoding_list = UTF-8
 
 # Maximum and minimum number of peers to connect to per torrent.

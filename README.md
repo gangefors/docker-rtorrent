@@ -16,7 +16,7 @@ The container is for the purest of torrenters, routing all their traffic through
 
 ###Exposed
 * Incoming TCP port: 49161
-* SCGI TCP port: 5000
+* SCGI TCP port: 50000
     * for ruTorrent interaction
 * Downloads Volume: /downloads
 * VPN Configuration Volume: /vpn

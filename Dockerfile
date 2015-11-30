@@ -10,7 +10,7 @@ ADD startup /root/
 ADD config/checkMyTorrentIp.png.torrent /root/test.torrent
 
 EXPOSE 49161
-EXPOSE 5000
+EXPOSE 50000
 VOLUME /downloads
 VOLUME /vpn
 

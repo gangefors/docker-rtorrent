@@ -4,14 +4,15 @@ MAINTAINER Yusuf Ali "ali@yusuf.email"
 RUN apk --update add rtorrent openvpn
 
 RUN mkdir /root/.session/
+RUN mkdir /config
 
-ADD config/rtorrent.rc /root/.rtorrent.rc
+ADD config/rtorrent.rc /config/rtorrent_config
 ADD startup /root/
-ADD config/checkMyTorrentIp.png.torrent /root/test.torrent
+RUN ln -s /config/rtorrent.rc /root/.rtorrent.rc
 
 EXPOSE 49161
-EXPOSE 50000
 VOLUME /downloads
 VOLUME /vpn
+VOLUME /config
 
 ENTRYPOINT ["/root/startup"]

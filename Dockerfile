@@ -16,8 +16,7 @@ RUN git init /var/www/localhost/htdocs
 RUN cd /var/www/localhost/htdocs && git remote add origin https://github.com/Novik/ruTorrent.git
 RUN cd /var/www/localhost/htdocs && git pull origin master
 RUN rm -rf /var/www/localhost/htdocs/plugins/*
-RUN cd /var/www/localhost/htdocs/plugins
-RUN git checkout create erasedata httprpc source _task
+RUN cd /var/www/localhost/htdocs/plugins && git checkout create erasedata httprpc source _task
 RUN chmod -R 777 /var/www/localhost/htdocs/share/
 
 

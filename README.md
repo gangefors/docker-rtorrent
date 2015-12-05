@@ -18,7 +18,7 @@ The container is for the purest of torrenters, routing all their traffic through
 * Incoming TCP port: 49161
 * ruTorrent TCP port: 80
 * Config Volume: /config
-  * store **rctorrent.rc** configuration file in here
+  * store **rtorrent.rc** configuration file in here
 * Downloads Volume: /downloads
 * VPN Configuration Volume: /vpn
   * Drop your VPN configuration files

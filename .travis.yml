@@ -7,3 +7,6 @@ before_install:
   - docker build -t yusufali/rtorrent .
   - docker run -d yusufali/rtorrent
   - docker ps -a
+
+script:
+  - echo 1

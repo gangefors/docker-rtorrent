@@ -5,5 +5,5 @@ services:
 
 before_install:
   - docker build -t yusufali/rtorrent .
-  - docker run -d -p 127.0.0.1:80
+  - docker run -d -p 127.0.0.1:80 yusufali/rtorrent
   - docker ps -a

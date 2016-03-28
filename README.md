@@ -1,6 +1,7 @@
 # DocTorrent
 
 [![](https://badge.imagelayers.io/yusufali/rtorrent:latest.svg)](https://imagelayers.io/?images=yusufali/rtorrent:latest 'Get your own badge on imagelayers.io')
+[![Build Status](https://travis-ci.org/drgroot/docker-rtorrent.svg?branch=master)](https://travis-ci.org/drgroot/docker-rtorrent)
 
 A minimalist rTorrent client for docker with OpenVPN capabilities. This also has rutorrent bound to port 80 using lighttpd.
 

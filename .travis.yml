@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - echo "COPY test /root/test/" >> Dockerfile
+  - ./tester
   - docker build -t yusufali/rtorrent .
   - docker run -it yusufali/rtorrent
 

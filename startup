@@ -1,16 +1,34 @@
 #!/bin/sh
 
-rm -rf /root/.session/rtorrent.lock
 
 
+###########
+# OPENVPN #
+###########
+
+# start openvpn 
 cd /vpn
 openvpn --config *.ovpn &
+
+# change dns to google's dns server
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
+# route all traffic through vpn
 sleep 20
 IP=`/sbin/ifconfig tun0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
 ip route replace 0.0.0.0/0 via $IP
 
 
+
+############
+# rTorrent #
+############
+
+# remove session block
+rm -rf /root/.session/rtorrent.lock
+
+# start webserver
 lighttpd -f /etc/lighttpd/lighttpd.conf
+
+# start rtorrent
 rtorrent

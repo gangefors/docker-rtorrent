@@ -4,11 +4,9 @@ MAINTAINER Yusuf Ali "ali@yusuf.email"
 RUN apk --update add rtorrent openvpn lighttpd php php-cgi fcgi git php-json
 
 RUN mkdir /root/.session/
-RUN mkdir /config
 
-ADD config/rtorrent.rc /config/rtorrent_config
+ADD config/rtorrent.rc /root/rtorrent_config
 ADD startup /root/
-RUN ln -s /config/rtorrent.rc /root/.rtorrent.rc
 RUN echo 'include "mod_fastcgi.conf"' >> /etc/lighttpd/lighttpd.conf
 
 # setup rutorrent

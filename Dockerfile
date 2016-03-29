@@ -14,9 +14,12 @@ RUN git init /var/www/localhost/htdocs
 RUN cd /var/www/localhost/htdocs && git remote add origin https://github.com/Novik/ruTorrent.git
 RUN cd /var/www/localhost/htdocs && git pull origin master
 RUN rm -rf /var/www/localhost/htdocs/plugins/*
-RUN cd /var/www/localhost/htdocs/plugins && git checkout create erasedata httprpc source _task
+RUN cd /var/www/localhost/htdocs/plugins && git checkout httprpc
 RUN chmod -R 777 /var/www/localhost/htdocs/share/
 
+# setup lighttpd
+RUN mkdir -p /var/run/lighttpd /run/lighttpd
+RUN chown lighttpd /var/run/lighttpd /run/lighttpd
 
 EXPOSE 49161
 EXPOSE 80

@@ -6,7 +6,7 @@ services:
 before_install:
   - ./tester
   - docker build -t yusufali/rtorrent .
-  - docker run -dt yusufali/rtorrent --name "sbox"
+  - docker run -dt yusufali/rtorrent --name sbox
 
 script:
   - docker exec sbox /root/test/entry-start.sh

@@ -9,4 +9,4 @@ before_install:
   - docker run --name sbox -dt yusufali/rtorrent sh
 
 script:
-  - docker exec sbox /root/test/entry-start.sh
+  - docker exec sbox test/entry-start.sh

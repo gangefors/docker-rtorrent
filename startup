@@ -1,16 +1,57 @@
 #!/bin/sh
 
-rm -rf /root/.session/rtorrent.lock
 
 
+###########
+# OPENVPN #
+###########
+
+# start openvpn 
 cd /vpn
 openvpn --config *.ovpn &
+
+# change dns to google's dns server
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
+# route all traffic through vpn
 sleep 20
 IP=`/sbin/ifconfig tun0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
 ip route replace 0.0.0.0/0 via $IP
 
 
+
+############
+# rTorrent #
+############
+
+# determine if a configuration file is present in /config/ and use it for
+# rtorrent. If there isn't, then just use the default config file packaged
+# with this container
+if [ -f /config/rtorrent.rc ]; then
+  # check if /config/rtorrent.rc is present. use over preferent to
+  # /config/.rtorrent.rc
+  ln -s /config/rtorrent.rc /root/.rtorrent.rc
+
+elif [ -f /config/.rtorrent.rc ]; then
+  # check if /config/.rtorrent.rc exists
+  ln -s /config/.rtorrent.rc /root/.rtorrent.rc
+
+elif [ -d /config ]; then
+  # if the /config/ directory is there but no config file in there, copy
+  # over a default config file for reference
+  cp /root/rtorrent_config /config/rtorrent.rc
+  ln -s /config/rtorrent.rc /root/.rtorrent.rc
+
+else
+  # use the default /root/rtorrent_config file
+  ln -s /root/rtorrent_config /root/.rtorrent.rc
+fi
+
+# remove session block
+rm -rf /root/.session/rtorrent.lock
+
+# start webserver
 lighttpd -f /etc/lighttpd/lighttpd.conf
+
+# start rtorrent
 rtorrent

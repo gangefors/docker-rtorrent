@@ -27,6 +27,11 @@ ip route replace 0.0.0.0/0 via $IP
 # determine if a configuration file is present in /config/ and use it for
 # rtorrent. If there isn't, then just use the default config file packaged
 # with this container
+if [ -f /root/.rtorrent.rc ]; then
+  # we will remove the config file by default
+  rm /root/.rtorrent.rc
+fi
+
 if [ -f /config/rtorrent.rc ]; then
   # check if /config/rtorrent.rc is present. use over preferent to
   # /config/.rtorrent.rc

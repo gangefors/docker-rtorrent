@@ -6,18 +6,20 @@
 # OPENVPN #
 ###########
 
-# start openvpn 
-cd /vpn
-openvpn --config *.ovpn &
+# check to see if openvpn files exist
+if [ ls /vpn/*.ovpn 1>/dev/null 2>&1 ]; then
+  # start openvpn 
+  cd /vpn
+  openvpn --config *.ovpn &
 
-# change dns to google's dns server
-echo "nameserver 8.8.8.8" > /etc/resolv.conf
+  # change dns to google's dns server
+  echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-# route all traffic through vpn
-sleep 20
-IP=`/sbin/ifconfig tun0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
-ip route replace 0.0.0.0/0 via $IP
-
+  # route all traffic through vpn
+  sleep 20
+  IP=`/sbin/ifconfig tun0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
+  ip route replace 0.0.0.0/0 via $IP
+fi
 
 
 ############

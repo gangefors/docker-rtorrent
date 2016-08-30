@@ -29,5 +29,6 @@ EXPOSE 80
 VOLUME /downloads
 VOLUME /vpn
 VOLUME /config
+VOLUME /root/.session
 
 ENTRYPOINT ["/root/startup"]
